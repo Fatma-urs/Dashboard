@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f4f4f4;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: #222;
+    color: white;
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul li i {
+    margin-right: 10px;
+}
+
+.sidebar ul li:hover a {
+    background-color: #444;
+    color: #ff5252;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+    width: 100%;
+    transition: margin-left 0.3s;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card i {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.red { background: #ff4d4d; }
+.green { background: #28a745; }
+.orange { background: #ff9800; }
+.blue { background: #2196f3; }
+
+/* Updates Box */
+.updates {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    position: relative;
+}
+
+.plus-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.plus-btn:hover {
+    background: #e60000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -220px;
+        position: fixed;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
